@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#----------------------------------------------------------------------
+# Script    : existe
+# Descrição :
+# Versão    : 0.1
+# Autor     : Fabio Junior Ribeiro <rib3iro@live.com>
+# Data      : 06/12/2020
+# Licença   : GNU/GPL v3.0
+#----------------------------------------------------------------------
+# Uso       :
+#----------------------------------------------------------------------
+clear
+array=(2 6 3 8 9 45 63 87)
+
+# Verifica se o numero existe
+VerificaSeNumeroExiste(){
+    for i in "${array[@]}"; do
+        while [ $numero -eq $i ]; do
+            echo  "O numero $numero já foi digitado, escolha outro!"
+            echo -n "Digite o numero:"; read numero
+            VerificaSeNumeroExiste
+        done
+    done
+}
+
+echo -n "Digite o numero: "; read numero
+VerificaSeNumeroExiste $numero
+
+
+
+
+

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#----------------------------------------------------------------------
+# Script    : removezero
+# Descrição :
+# Versão    : 0.1
+# Autor     : Fabio Junior Ribeiro <rib3iro@live.com>
+# Data      : 06/12/2020
+# Licença   : GNU/GPL v3.0
+#----------------------------------------------------------------------
+# Uso       :
+#----------------------------------------------------------------------
+clear
+echo -n "Digite um numero >>> "; read aux
+echo
+echo "O numero digitado é >>> $aux"
+echo
+#num=$(echo ${aux##*0})
+num=$(echo ${aux} | bc)
+echo "O numero sem os zeros é >>> $num"
+
+zeros(){
+    zero=$(echo $1 | cut -c 1)
+    if [ $zero == '0' ]; then
+        num2=$(echo $1 | cut -c 2)
+
+    else
+        num2="$1"
+    fi
+}
+zeros 003
