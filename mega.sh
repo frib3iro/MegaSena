@@ -14,20 +14,26 @@ source funcoes.sh
 source variaveis.sh
 source automatico.sh
 
-# Recebe a entrada do usuário
-echo -e "${seta}${amarelo}Digite os numeros do seu jogo:${fim}"
-while [ $cont -le 6 ]
-do
-    echo -en "${ciano}Digite o ${cont}° numero: ${fim}"
-    read numero
-    VerificaFaixaDeValor
-    VerificaSeNumeroExiste
-    RemoveZeros $numero
-    AdicionaZero $numero
-    ((cont++))
-done
+while [  ]
+echo -e "${seta}${verde}-------------------------------------------${fim}"
+echo -e "${seta}${ciano}>>> Bem vindo ao simulador de Mega Sena <<<${fim}"
+echo -e "${seta}${verde}-------------------------------------------${fim}"
+echo
+echo -e "${seta}${ciano}[ 1 ] Jogo manual:${fim}"
+echo -e "${seta}${ciano}[ 2 ] Jogo automático:${fim}"
+echo -e "${seta}${ciano}[ 3 ] Sair${fim}"
+echo
+echo -en "${seta}${ciano}Digite sua escolha: ${fim}"
+read opcao
+case $opcao in
+    1) JogoManual ;;
+    2)  ;;
+    3) exit ;;
+    *) echo -e "${seta}${vermelho}Opcao desconhecida!${fim}"; echo ; exit 1 ;;
+esac
 
 # Imprimindo os números ordenados
+echo
 echo -e "${seta}${ciano}O seu jogo é:${fim}"
 # Ordenando os numeros
 BubbleSort
